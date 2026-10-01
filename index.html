@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>LORENA Y CRISTIAN</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- BOTÓN DE MÚSICA: All of Me - John Legend -->
+  <div class="audiodiv">
+    <audio id="myAudio" preload="auto">
+      <source src="/jon.mp3" type="audio/mpeg">
+    </audio>
+    <div id="playPauseBtn" class="play">
+      <img src="./imgs/notamusical.png" alt="Música">
+    </div>
+  </div>
+
+  <main class="invitacion">
+
+    <!-- BARRA SUPERIOR -->
+    <div class="topbar">L&amp;C</div>
+
+    <!-- FOTO 1 -->
+    <div class="hero">
+      <img src="./novios/1.png" alt="Lorena y Cristian">
+    </div>
+
+    <!-- PRESENTACIÓN -->
+    <section class="intro">
+      <p class="frase" data-aos="fade-up">30 años de historia,<br>un amor para toda la vida.</p>
+
+      <p class="chico" data-aos="fade-up">Nosotros:</p>
+      <h1 class="nombre" data-aos="fade-up">LORENA</h1>
+      <span class="amp" data-aos="fade-up">&amp;</span>
+      <h1 class="nombre" data-aos="fade-up">CRISTIAN</h1>
+
+      <p class="invitamos" data-aos="fade-up">Tenemos el placer de invitarlos<br>a nuestra boda que se realizará el próximo</p>
+      <p class="chico dia" data-aos="fade-up">Viernes</p>
+      <p class="fecha" data-aos="fade-up">18 . 12 . 26</p>
+      <p class="chico" data-aos="fade-up">Bahía Blanca, Argentina</p>
+    </section>
+
+    <!-- CONTADOR -->
+    <div class="contador">
+      <div class="bloque"><div id="dias" class="numero"></div><div class="etiqueta">días</div></div>
+      <div class="bloque"><div id="horas" class="numero"></div><div class="etiqueta">horas</div></div>
+      <div class="bloque"><div id="minutos" class="numero"></div><div class="etiqueta">min</div></div>
+      <div class="bloque"><div id="segundos" class="numero"></div><div class="etiqueta">seg</div></div>
+    </div>
+
+    <!-- ITINERARIO (civil, ceremonia y fiesta con sus ubicaciones) -->
+    <section class="itinerario">
+      <h2 data-aos="fade-up">ITINERARIO</h2>
+      <div class="linea">
+
+        <div class="item" data-aos="fade-up">
+          <p class="dia-item">Jueves 17 de diciembre</p>
+          <p class="hora">12:30 HS</p>
+          <p class="evento">Civil</p>
+          <p class="lugar">Av. Gral. San Martín 3466<br>Ingeniero White</p>
+          <a class="boton-linea oscuro" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Av.+Gral.+San+Mart%C3%ADn+3466,+Ingeniero+White">Ver ubicación</a>
+        </div>
+
+        <div class="item" data-aos="fade-up">
+          <p class="dia-item">Viernes 18 de diciembre</p>
+          <p class="hora">20:15 HS</p>
+          <p class="evento">Ceremonia</p>
+          <p class="lugar">Iglesia Catedral Nuestra Señora de La Merced<br>Sarmiento 72</p>
+          <a class="boton-linea oscuro" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Catedral+Nuestra+Se%C3%B1ora+de+La+Merced,+Sarmiento+72,+Bah%C3%ADa+Blanca">Ver ubicación</a>
+        </div>
+
+        <div class="item" data-aos="fade-up">
+          <p class="dia-item">Viernes 18 de diciembre</p>
+          <p class="hora">21:00 HS</p>
+          <p class="evento">Fiesta</p>
+          <p class="lugar">El Pinar Eventos<br>Guido Spano 1675</p>
+          <a class="boton-linea oscuro" target="_blank" href="https://www.google.com/maps/search/?api=1&query=El+Pinar+Eventos,+Guido+Spano+1675,+Bah%C3%ADa+Blanca">Ver ubicación</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DRESS CODE -->
+    <section class="banda gris">
+      <h2 data-aos="fade-up">DRESS CODE</h2>
+      <p data-aos="fade-up">Elegante</p>
+      <p class="nota" data-aos="fade-up">El blanco está reservado para la novia 🤍</p>
+      <!-- Opcional: botón de inspiración
+      <a class="boton-linea" target="_blank" href="LINK-PINTEREST" style="margin-top:22px">Inspiración</a>
+      -->
+    </section>
+
+    <!-- FOTOS DE LOS INVITADOS (activar cuando esté el link de la carpeta de Drive)
+    <section class="banda">
+      <h2 data-aos="fade-up">COMPARTÍ TUS FOTOS</h2>
+      <p data-aos="fade-up">Queremos revivir cada momento. Subí tus fotos y videos de la boda a nuestro álbum.</p>
+      <a data-aos="fade-up" class="boton-linea" target="_blank" href="LINK-DRIVE">Ir al álbum</a>
+    </section>
+    -->
+
+    <!-- MESA DE REGALOS -->
+    <section class="regalos">
+      <h2 data-aos="fade-up">MESA DE REGALOS</h2>
+      <p data-aos="fade-up">En caso de que prefieras hacernos un regalo en efectivo, tendrás a disposición un buzón en el salón durante la recepción. También podés hacerlo por transferencia:</p>
+      <div class="regalos-grid" data-aos="fade-up">
+        <div class="regalos-botones">
+          <a class="boton-linea oscuro" onclick="copyToClipboard('0000003100052459659645')">Copiar CVU</a>
+          <a class="boton-linea oscuro" onclick="copyToClipboard('miboda.lyc')">Copiar alias</a>
+        </div>
+        <div class="regalos-datos">
+          <p>Titular<br><strong>Barbara Lorena Nani</strong></p>
+          <p>Alias<br><strong>miboda.lyc</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="forms">
+      <h2 data-aos="fade-up">R.S.V.P.</h2>
+      <p class="chico" data-aos="fade-up">Antes del 10 de noviembre</p>
+
+      <!-- OJO: este action es el script de la boda anterior. Reemplazar por el de Lorena y Cristian. -->
+      <form name="asistenciaform" method="POST" action="https://script.google.com/macros/s/AKfycbxLZrzIhu1eV2Pw9eXBIhpwCCPResDWPgwfChuiTdcXJIbqQp-WLDenVfJCpW8vpDansw/exec" class="formulario">
+        <label class="formtitle">¿Venís?</label>
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="ASISTENCIA" value="sí" required><span>Sí</span></label>
+          <label class="radio-option"><input type="radio" name="ASISTENCIA" value="no"><span>No</span></label>
+        </div>
+
+        <input type="text" name="NOMBRE" placeholder="Nombre" required>
+        <input type="text" name="APELLIDO" placeholder="Apellido" required>
+
+        <select name="DIETA" id="dieta" required>
+          <option value="" disabled selected>Dieta</option>
+          <option value="Nada">Nada</option>
+          <option value="Vegano">Vegano</option>
+          <option value="Vegetariano">Vegetariano</option>
+          <option value="Celíaco">Celíaco</option>
+        </select>
+
+        <textarea name="MENSAJE" placeholder="Dejale un mensaje a los novios 🤍"></textarea>
+
+        <button type="submit" class="boton-linea">Confirmar asistencia</button>
+      </form>
+
+      <p class="nota">Recordá completar un formulario por persona.</p>
+    </section>
+
+    <!-- FOTO 2 CUADRADA -->
+    <div class="foto-cuadrada" data-aos="fade-in">
+      <img src="./novios/2.png" alt="Lorena y Cristian">
+    </div>
+
+    <!-- CIERRE -->
+    <section class="cierre">
+      <p class="cierre-nombres" data-aos="fade-up">LORENA <span>&amp;</span> CRISTIAN</p>
+      <p class="chico" data-aos="fade-up">18 . 12 . 26</p>
+    </section>
+
+    <footer>
+      <img src="./imgs/logosiquiero.png" alt="Si, quiero!">
+      <p>Hecho con &hearts; · &copy; <b>Si, quiero!</b><br>invitaciones inteligentes</p>
+      <ul>
+        <li><a target="_blank" href="https://www.instagram.com/siquiero.arg/"><i class="bi bi-instagram"></i></a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Invitaciones-web-112187784608681"><i class="bi bi-facebook"></i></a></li>
+        <li><a target="_blank" href="mailto:siquiero.invitaciones@gmail.com"><i class="bi bi-envelope"></i></a></li>
+      </ul>
+    </footer>
+
+  </main>
+
+  <script src="./form.js"></script>
+  <script src="./countdwon.js"></script>
+  <script src="./reproductor.js"></script>
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ once: true, duration: 700 });</script>
+
+  <script>
+    // Arranca la música con el primer scroll
+    document.addEventListener("DOMContentLoaded", function () {
+      const audio = document.getElementById("myAudio");
+      const playOnScroll = () => {
+        audio.play().catch(e => console.warn("El navegador bloqueó la reproducción automática", e));
+        document.removeEventListener("scroll", playOnScroll);
+      };
+      document.addEventListener("scroll", playOnScroll);
+    });
+
+    // Copiar CVU / alias
+    function copyToClipboard(text) {
+      const avisar = () => alert(`Copiaste "${text}" a tu portapapeles`);
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(avisar);
+      } else {
+        const tempInput = document.createElement("input");
+        document.body.appendChild(tempInput);
+        tempInput.value = text;
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        avisar();
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,491 @@
+:root {
+    /* Paleta de Lorena y Cristian */
+    --blanco: #f4f4f1;
+    --crema: #ffffff;          /* campos del formulario */
+    --gris-claro: #ccc6c1;
+    --vison: #847a72;
+    --vison-oscuro: #6b625b;
+    --tinta: #151111;
+    --gris: #9a918a;
+    --linea: #d9d4cf;
+    --fondo: #f4f4f1;
+
+    --font-titulo: 'Bodoni Moda', serif;
+    --font-texto: 'Montserrat', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+    background: var(--fondo);
+    font-family: var(--font-texto);
+    color: var(--tinta);
+    -webkit-font-smoothing: antialiased;
+}
+
+p { margin: 0; }
+h1, h2 { margin: 0; font-weight: 400; }
+
+/* Ocupa todo el ancho en cualquier pantalla */
+.invitacion {
+    width: 100%;
+    background: var(--blanco);
+    overflow: hidden;
+}
+
+/* ===== BARRA SUPERIOR ===== */
+.topbar {
+    background: var(--tinta);
+    color: var(--blanco);
+    text-align: center;
+    font-family: var(--font-titulo);
+    font-size: 2.2rem;
+    letter-spacing: .05em;
+    padding: 26px 0;
+}
+
+/* ===== FOTO 1 ===== */
+.hero img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ===== PRESENTACIÓN ===== */
+.intro {
+    text-align: center;
+    padding: 56px 24px 60px;
+}
+.frase {
+    font-family: var(--font-titulo);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--vison-oscuro);
+    margin-bottom: 36px;
+}
+.chico {
+    font-size: .78rem;
+    letter-spacing: .12em;
+    color: var(--tinta);
+}
+.intro .frase + .chico { margin-bottom: 14px; }
+.dia { margin-bottom: 4px; text-transform: uppercase; color: var(--vison); }
+.nombre {
+    font-family: var(--font-titulo);
+    font-size: clamp(2.8rem, 14vw, 4.4rem);
+    line-height: 1;
+    letter-spacing: .01em;
+}
+.amp {
+    display: block;
+    font-family: var(--font-titulo);
+    font-style: italic;
+    font-size: 2.2rem;
+    color: var(--vison);
+    margin: 8px 0;
+}
+.invitamos {
+    font-size: .85rem;
+    line-height: 1.6;
+    margin: 40px 0 12px;
+}
+.fecha {
+    font-family: var(--font-titulo);
+    font-size: 2.6rem;
+    letter-spacing: .06em;
+    margin-bottom: 8px;
+}
+
+/* ===== CONTADOR ===== */
+.contador {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    padding: 26px 0;
+    background: var(--tinta);
+    color: var(--blanco);
+}
+.bloque { text-align: center; min-width: 52px; }
+.numero {
+    font-family: var(--font-titulo);
+    font-size: 2rem;
+    line-height: 1.1;
+}
+.etiqueta {
+    font-size: .65rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    opacity: .7;
+}
+
+/* ===== BANDAS DE COLOR (ubicación / dress code) ===== */
+.banda {
+    background: var(--vison);
+    color: var(--blanco);
+    padding: 46px 36px;
+}
+.banda h2 {
+    font-family: var(--font-titulo);
+    font-size: 1.6rem;
+    letter-spacing: .04em;
+    margin-bottom: 10px;
+}
+.banda p {
+    font-size: .9rem;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+.banda .nota {
+    font-size: .78rem;
+    opacity: .85;
+    margin-bottom: 0;
+}
+
+/* Banda gris claro (dress code): texto oscuro para que se lea */
+.banda.gris {
+    background: var(--gris-claro);
+    color: var(--tinta);
+}
+.banda.gris .nota { opacity: .75; }
+
+/* ===== BOTONES ===== */
+.boton-linea {
+    display: inline-block;
+    border: 1px solid var(--blanco);
+    background: transparent;
+    color: var(--blanco);
+    font-family: var(--font-texto);
+    font-size: .68rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 9px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background .25s, color .25s;
+}
+.boton-linea.oscuro {
+    border-color: var(--tinta);
+    color: var(--tinta);
+}
+/* hover solo con mouse: en celular el primer toque hace click directo */
+@media (hover: hover) and (pointer: fine) {
+    .boton-linea:hover { background: var(--blanco); color: var(--vison); }
+    .boton-linea.oscuro:hover { background: var(--tinta); color: var(--blanco); }
+}
+
+/* ===== ITINERARIO ===== */
+.itinerario {
+    padding: 56px 36px 30px;
+}
+.itinerario h2 {
+    font-family: var(--font-titulo);
+    font-size: 1.6rem;
+    letter-spacing: .04em;
+    margin-bottom: 34px;
+}
+.linea {
+    border-left: 1px solid var(--linea);
+    margin-left: 14px;
+    padding-left: 26px;
+}
+.item { margin-bottom: 40px; }
+.dia-item {
+    font-size: .68rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--gris);
+    margin-bottom: 6px;
+}
+.lugar {
+    font-size: .85rem;
+    line-height: 1.55;
+    margin: 8px 0 16px;
+}
+.hora {
+    font-family: var(--font-titulo);
+    font-size: 1.45rem;
+    color: var(--vison);
+    margin-bottom: 4px;
+}
+.evento {
+    font-size: .75rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+/* ===== MESA DE REGALOS ===== */
+.regalos {
+    padding: 56px 36px;
+    border-top: 1px solid var(--linea);
+}
+.regalos h2 {
+    font-family: var(--font-titulo);
+    font-size: 1.6rem;
+    letter-spacing: .04em;
+    margin-bottom: 12px;
+}
+.regalos > p {
+    font-size: .85rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+.regalos-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px;
+    align-items: center;
+}
+.regalos-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.regalos-botones .boton-linea { text-align: center; }
+.regalos-datos {
+    border-left: 1px solid var(--linea);
+    padding-left: 22px;
+}
+.regalos-datos p {
+    font-size: .7rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--gris);
+    line-height: 1.6;
+}
+.regalos-datos p + p { margin-top: 12px; }
+.regalos-datos strong {
+    color: var(--tinta);
+    font-weight: 500;
+    letter-spacing: .06em;
+}
+
+/* ===== RSVP ===== */
+.forms {
+    background: var(--vison);
+    color: var(--blanco);
+    text-align: center;
+    padding: 52px 0 44px;
+}
+.forms h2 {
+    font-family: var(--font-titulo);
+    font-size: 1.9rem;
+    letter-spacing: .08em;
+    margin-bottom: 6px;
+}
+.forms .chico { color: var(--blanco); }
+.forms .nota {
+    font-size: .78rem;
+    opacity: .85;
+}
+.formulario {
+    width: 88%;
+    max-width: 400px;
+    margin: 30px auto 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.formtitle {
+    font-family: var(--font-titulo);
+    font-style: italic;
+    font-size: 1.3rem;
+}
+.radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 8px;
+}
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .95rem;
+    cursor: pointer;
+}
+.radio-option input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid var(--blanco);
+    border-radius: 50%;
+    margin: 0;
+    cursor: pointer;
+}
+.radio-option input[type="radio"]:checked { background: var(--blanco); }
+
+.formulario input[type="text"],
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    background: var(--crema);
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-family: var(--font-texto);
+    font-size: .9rem;
+    color: var(--tinta);
+}
+.formulario input::placeholder,
+.formulario textarea::placeholder { color: var(--gris); }
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+    outline: none;
+    border-color: var(--tinta);
+}
+.formulario textarea { resize: vertical; min-height: 80px; }
+.formulario .boton-linea {
+    align-self: center;
+    margin-top: 10px;
+    padding: 11px 30px;
+}
+
+/* ===== FOTO 2 CUADRADA ===== */
+.foto-cuadrada img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ===== CIERRE ===== */
+.cierre {
+    padding: 48px 24px 44px;
+    text-align: center;
+}
+.cierre-nombres {
+    font-family: var(--font-titulo);
+    font-size: 1.7rem;
+    letter-spacing: .06em;
+    color: var(--gris);
+    margin-bottom: 10px;
+}
+.cierre-nombres span { font-style: italic; }
+.cierre .chico { color: var(--gris); }
+
+/* ===== FOOTER ===== */
+footer {
+    background: var(--tinta);
+    color: var(--blanco);
+    text-align: center;
+    padding: 34px 20px 24px;
+}
+footer img { width: 50px; margin-bottom: 10px; }
+footer p {
+    font-size: .72rem;
+    line-height: 1.6;
+    opacity: .8;
+}
+footer ul {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0;
+}
+footer a { color: var(--blanco); font-size: 1.1rem; }
+
+/* ===== MÚSICA ===== */
+.audiodiv {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 50;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--vison);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
+}
+.audiodiv img { width: 48px; height: 48px; display: block; }
+.play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+audio::-webkit-media-controls,
+audio::-webkit-media-controls-panel,
+audio::-webkit-media-controls-enclosure { display: none !important; }
+
+/* ===== TABLET Y COMPUTADORA ===== */
+@media (min-width: 768px) {
+    /* Foto 1 a pantalla completa */
+    .hero img {
+        aspect-ratio: auto;
+        height: 100vh;
+    }
+
+    .intro { padding: 80px 10vw; }
+    .nombre { font-size: clamp(4.4rem, 9vw, 7.5rem); }
+
+    .contador { gap: 60px; padding: 34px 0; }
+    .numero { font-size: 2.8rem; }
+
+    /* Bandas y secciones con más aire a los costados */
+    .banda,
+    .itinerario,
+    .regalos { padding: 70px 10vw; }
+
+    .regalos-grid { max-width: 640px; }
+
+    /* ITINERARIO HORIZONTAL */
+    .itinerario h2 { text-align: center; margin-bottom: 50px; }
+    .linea {
+        display: flex;
+        justify-content: space-between;
+        border-left: none;
+        border-top: 1px solid var(--linea);
+        margin: 0;
+        padding: 0;
+    }
+    .item {
+        flex: 1;
+        position: relative;
+        text-align: center;
+        padding: 30px 8px 0;
+        margin: 0;
+    }
+    .item::before {           /* puntito sobre la línea */
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--vison);
+    }
+
+    .forms { padding: 70px 0 60px; }
+
+    /* Foto cuadrada centrada (no ocupa toda la pantalla) */
+    .foto-cuadrada { max-width: 640px; margin: 0 auto; }
+    .cierre { padding: 64px 0 56px; }
+    .cierre-nombres { font-size: 2.2rem; }
+}
+
+/* ===== CELULARES CHICOS ===== */
+@media (max-width: 380px) {
+    .banda, .itinerario, .regalos { padding-left: 26px; padding-right: 26px; }
+    .contador { gap: 12px; }
+    .numero { font-size: 1.7rem; }
+    .regalos-grid { grid-template-columns: 1fr; }
+    .regalos-datos { border-left: none; padding-left: 0; border-top: 1px solid var(--linea); padding-top: 18px; }
+}
