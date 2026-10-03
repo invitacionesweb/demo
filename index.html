@@ -19,7 +19,7 @@
   <!-- BOTÓN DE MÚSICA: All of Me - John Legend -->
   <div class="audiodiv">
     <audio id="myAudio" preload="auto">
-      <source src="/jon.mp3" type="audio/mpeg">
+      <source src="/allofme.mp3" type="audio/mpeg">
     </audio>
     <div id="playPauseBtn" class="play">
       <img src="./imgs/notamusical.png" alt="Música">
@@ -109,18 +109,34 @@
     </section>
     -->
 
-    <!-- MESA DE REGALOS -->
+    <!-- MESA DE REGALOS (tarjeta que gira) -->
     <section class="regalos">
       <h2 data-aos="fade-up">MESA DE REGALOS</h2>
-      <p data-aos="fade-up">En caso de que prefieras hacernos un regalo en efectivo, tendrás a disposición un buzón en el salón durante la recepción. También podés hacerlo por transferencia:</p>
-      <div class="regalos-grid" data-aos="fade-up">
-        <div class="regalos-botones">
-          <a class="boton-linea oscuro" onclick="copyToClipboard('0000003100052459659645')">Copiar CVU</a>
-          <a class="boton-linea oscuro" onclick="copyToClipboard('miboda.lyc')">Copiar alias</a>
-        </div>
-        <div class="regalos-datos">
-          <p>Titular<br><strong>Barbara Lorena Nani</strong></p>
-          <p>Alias<br><strong>miboda.lyc</strong></p>
+      <p data-aos="fade-up">Tu presencia es nuestro mejor regalo, pero si querés podés ayudarnos con nuestra luna de miel.</p>
+
+      <div class="flip" id="flipRegalos" data-aos="fade-up">
+        <div class="flip-inner">
+
+          <!-- FRENTE -->
+          <button type="button" class="flip-cara flip-frente" onclick="girarTarjeta()">
+            <i class="bi bi-gift"></i>
+            <span>Ver datos</span>
+          </button>
+
+          <!-- DORSO -->
+          <div class="flip-cara flip-dorso">
+            <p class="flip-texto">En caso de que prefieras hacernos un regalo en efectivo, tendrás a disposición un buzón en el salón durante la recepción. También podés hacerlo por transferencia:</p>
+            <div class="regalos-datos">
+              <p>Titular<br><strong>Barbara Lorena Nani</strong></p>
+              <p>Alias<br><strong>miboda.lyc</strong></p>
+            </div>
+            <div class="regalos-botones">
+              <a class="boton-linea oscuro" onclick="copyToClipboard('0000003100052459659645')">Copiar CVU</a>
+              <a class="boton-linea oscuro" onclick="copyToClipboard('miboda.lyc')">Copiar alias</a>
+            </div>
+            <button type="button" class="flip-volver" onclick="girarTarjeta()"><i class="bi bi-arrow-counterclockwise"></i> Volver</button>
+          </div>
+
         </div>
       </div>
     </section>
@@ -131,7 +147,7 @@
       <p class="chico" data-aos="fade-up">Antes del 10 de noviembre</p>
 
       <!-- OJO: este action es el script de la boda anterior. Reemplazar por el de Lorena y Cristian. -->
-      <form name="asistenciaform" method="POST" action="https://script.google.com/macros/s/AKfycbxLZrzIhu1eV2Pw9eXBIhpwCCPResDWPgwfChuiTdcXJIbqQp-WLDenVfJCpW8vpDansw/exec" class="formulario">
+      <form name="asistenciaform" method="POST" action="https://script.google.com/macros/s/AKfycbyflYaYmt5nuwhj_6axPwADWuCS_H8oglsyJbMiAkMxRUbiurZ6d3TqxGutLjKtLeeT/exec" class="formulario">
         <label class="formtitle">¿Venís?</label>
         <div class="radio-group">
           <label class="radio-option"><input type="radio" name="ASISTENCIA" value="sí" required><span>Sí</span></label>
@@ -197,6 +213,39 @@
       };
       document.addEventListener("scroll", playOnScroll);
     });
+
+    // Girar la tarjeta de la mesa de regalos (se agranda al mostrar los datos)
+    function girarTarjeta() {
+      const flip = document.getElementById("flipRegalos");
+      const inner = flip.querySelector(".flip-inner");
+      if (flip.dataset.girando) return;
+      flip.dataset.girando = "1";
+
+      const altoInicial = inner.offsetHeight;
+      inner.style.height = altoInicial + "px";
+      flip.classList.add("mitad");                 // 1) gira hasta quedar de canto
+
+      setTimeout(() => {
+        flip.classList.toggle("girada");          // 2) cambia de cara
+        inner.style.height = "auto";
+        const altoFinal = inner.offsetHeight;
+        inner.style.height = altoInicial + "px";
+
+        flip.classList.add("sin-anim");
+        flip.classList.remove("mitad");
+        flip.classList.add("del-otro-lado");
+        void inner.offsetHeight;
+        flip.classList.remove("sin-anim");
+
+        flip.classList.remove("del-otro-lado");   // 3) termina el giro
+        inner.style.height = altoFinal + "px";    //    y cambia de tamaño
+
+        setTimeout(() => {
+          inner.style.height = "";
+          delete flip.dataset.girando;
+        }, 460);
+      }, 350);
+    }
 
     // Copiar CVU / alias
     function copyToClipboard(text) {

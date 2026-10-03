@@ -64,13 +64,13 @@ h1, h2 { margin: 0; font-weight: 400; }
 .frase {
     font-family: var(--font-titulo);
     font-style: italic;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     color: var(--vison-oscuro);
     margin-bottom: 36px;
 }
 .chico {
-    font-size: .78rem;
+    font-size: .9rem;
     letter-spacing: .12em;
     color: var(--tinta);
 }
@@ -91,7 +91,7 @@ h1, h2 { margin: 0; font-weight: 400; }
     margin: 8px 0;
 }
 .invitamos {
-    font-size: .85rem;
+    font-size: 1rem;
     line-height: 1.6;
     margin: 40px 0 12px;
 }
@@ -118,7 +118,7 @@ h1, h2 { margin: 0; font-weight: 400; }
     line-height: 1.1;
 }
 .etiqueta {
-    font-size: .65rem;
+    font-size: .75rem;
     letter-spacing: .2em;
     text-transform: uppercase;
     opacity: .7;
@@ -137,12 +137,12 @@ h1, h2 { margin: 0; font-weight: 400; }
     margin-bottom: 10px;
 }
 .banda p {
-    font-size: .9rem;
+    font-size: 1.05rem;
     line-height: 1.6;
     margin-bottom: 22px;
 }
 .banda .nota {
-    font-size: .78rem;
+    font-size: .9rem;
     opacity: .85;
     margin-bottom: 0;
 }
@@ -161,7 +161,7 @@ h1, h2 { margin: 0; font-weight: 400; }
     background: transparent;
     color: var(--blanco);
     font-family: var(--font-texto);
-    font-size: .68rem;
+    font-size: .78rem;
     letter-spacing: .22em;
     text-transform: uppercase;
     text-decoration: none;
@@ -195,27 +195,28 @@ h1, h2 { margin: 0; font-weight: 400; }
     margin-left: 14px;
     padding-left: 26px;
 }
-.item { margin-bottom: 40px; }
+.item { margin-bottom: 72px; }
+.item:last-child { margin-bottom: 20px; }
 .dia-item {
-    font-size: .68rem;
+    font-size: .78rem;
     letter-spacing: .16em;
     text-transform: uppercase;
     color: var(--gris);
     margin-bottom: 6px;
 }
 .lugar {
-    font-size: .85rem;
-    line-height: 1.55;
-    margin: 8px 0 16px;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 12px 0 22px;
 }
 .hora {
     font-family: var(--font-titulo);
-    font-size: 1.45rem;
+    font-size: 1.65rem;
     color: var(--vison);
-    margin-bottom: 4px;
+    margin-bottom: 8px;
 }
 .evento {
-    font-size: .75rem;
+    font-size: .88rem;
     letter-spacing: .16em;
     text-transform: uppercase;
 }
@@ -232,28 +233,73 @@ h1, h2 { margin: 0; font-weight: 400; }
     margin-bottom: 12px;
 }
 .regalos > p {
-    font-size: .85rem;
+    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 30px;
 }
-.regalos-grid {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 28px;
+/* Tarjeta que gira: el frente es chico y al girar se agranda para mostrar los datos */
+.flip {
+    perspective: 1200px;
+    max-width: 460px;
+}
+.flip-inner {
+    overflow: hidden;
+    transition: transform .35s ease-in, height .45s ease;
+}
+.flip.mitad .flip-inner { transform: rotateY(90deg); }   /* mitad del giro: de canto */
+.flip.sin-anim .flip-inner { transition: none; }
+.flip.del-otro-lado .flip-inner { transform: rotateY(-90deg); }
+
+.flip-cara {
+    border: 1px solid var(--tinta);
+    border-radius: 4px;
+    background: var(--blanco);
+}
+.flip-dorso { display: none; padding: 34px 28px; }
+.flip.girada .flip-dorso { display: block; }
+.flip.girada .flip-frente { display: none; }
+
+.flip-frente {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 260px;
+    padding: 22px 20px;
+    cursor: pointer;
+    font-family: var(--font-texto);
+    color: var(--tinta);
+}
+.flip-frente i {
+    font-size: 1.6rem;
+    color: var(--vison);
+}
+.flip-frente span {
+    font-size: .88rem;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+}
+.flip-dorso { text-align: left; }
+.flip-texto {
+    font-size: .95rem;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+.flip-dorso .regalos-datos {
+    border-left: 1px solid var(--linea);
+    padding-left: 18px;
+    margin-bottom: 24px;
 }
 .regalos-botones {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 12px;
 }
 .regalos-botones .boton-linea { text-align: center; }
-.regalos-datos {
-    border-left: 1px solid var(--linea);
-    padding-left: 22px;
-}
 .regalos-datos p {
-    font-size: .7rem;
+    font-size: .8rem;
     letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--gris);
@@ -264,6 +310,19 @@ h1, h2 { margin: 0; font-weight: 400; }
     color: var(--tinta);
     font-weight: 500;
     letter-spacing: .06em;
+}
+.flip-volver {
+    display: block;
+    margin-top: 22px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: var(--font-texto);
+    font-size: .75rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gris);
 }
 
 /* ===== RSVP ===== */
@@ -281,7 +340,7 @@ h1, h2 { margin: 0; font-weight: 400; }
 }
 .forms .chico { color: var(--blanco); }
 .forms .nota {
-    font-size: .78rem;
+    font-size: .9rem;
     opacity: .85;
 }
 .formulario {
@@ -295,7 +354,7 @@ h1, h2 { margin: 0; font-weight: 400; }
 .formtitle {
     font-family: var(--font-titulo);
     font-style: italic;
-    font-size: 1.3rem;
+    font-size: 1.45rem;
 }
 .radio-group {
     display: flex;
@@ -307,7 +366,7 @@ h1, h2 { margin: 0; font-weight: 400; }
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: .95rem;
+    font-size: 1.05rem;
     cursor: pointer;
 }
 .radio-option input[type="radio"] {
@@ -331,7 +390,7 @@ h1, h2 { margin: 0; font-weight: 400; }
     border-radius: 6px;
     padding: 12px 14px;
     font-family: var(--font-texto);
-    font-size: .9rem;
+    font-size: 1rem;
     color: var(--tinta);
 }
 .formulario input::placeholder,
@@ -382,7 +441,7 @@ footer {
 }
 footer img { width: 50px; margin-bottom: 10px; }
 footer p {
-    font-size: .72rem;
+    font-size: .82rem;
     line-height: 1.6;
     opacity: .8;
 }
@@ -442,12 +501,12 @@ audio::-webkit-media-controls-enclosure { display: none !important; }
     .itinerario,
     .regalos { padding: 70px 10vw; }
 
-    .regalos-grid { max-width: 640px; }
 
     /* ITINERARIO HORIZONTAL */
     .itinerario h2 { text-align: center; margin-bottom: 50px; }
     .linea {
         display: flex;
+        gap: 40px;
         justify-content: space-between;
         border-left: none;
         border-top: 1px solid var(--linea);
@@ -461,6 +520,14 @@ audio::-webkit-media-controls-enclosure { display: none !important; }
         padding: 30px 8px 0;
         margin: 0;
     }
+    /* botones "Ver ubicación" alineados aunque una dirección ocupe más líneas */
+    .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .item .boton-linea { margin-top: auto; }
+    .item:last-child { margin-bottom: 0; }
     .item::before {           /* puntito sobre la línea */
         content: "";
         position: absolute;
@@ -486,6 +553,4 @@ audio::-webkit-media-controls-enclosure { display: none !important; }
     .banda, .itinerario, .regalos { padding-left: 26px; padding-right: 26px; }
     .contador { gap: 12px; }
     .numero { font-size: 1.7rem; }
-    .regalos-grid { grid-template-columns: 1fr; }
-    .regalos-datos { border-left: none; padding-left: 0; border-top: 1px solid var(--linea); padding-top: 18px; }
 }
